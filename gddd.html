@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Pics 1 Word Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .game-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .images {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .images img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>4 Pics 1 Word</h1>
+        <div class="images">
+            <img src="https://www.collinsdictionary.com/images/full/apple_158989157.jpg" alt="Image 1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Image 2">
+            <img src="https://img.freepik.com/free-vector/apple-tree-isolated-white_1308-55458.jpg" alt="Image 3">
+            <img src="https://www.inspiredtaste.net/wp-content/uploads/2019/11/Homemade-Apple-Pie-From-Scratch-1200.jpg" alt="Image 4">
+        </div>
+        <input type="text" id="guess-input" placeholder="Enter your guess">
+        <button id="submit-guess">Submit</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        // Define the correct word for the game
+        const correctWord = "apple";
+
+        // Get references to the DOM elements
+        const guessInput = document.getElementById('guess-input');
+        const submitButton = document.getElementById('submit-guess');
+        const resultText = document.getElementById('result');
+
+        // Add event listener to the submit button
+        submitButton.addEventListener('click', checkGuess);
+
+        function checkGuess() {
+            const userGuess = guessInput.value.trim().toLowerCase();
+
+            if (userGuess === correctWord) {
+                resultText.textContent = "Correct! Well done!";
+                resultText.style.color = "green";
+            } else {
+                resultText.textContent = "Incorrect! Try again.";
+                resultText.style.color = "red";
+            }
+
+            // Clear the input field
+            guessInput.value = '';
+        }
+    </script>
+</body>
+</html>
