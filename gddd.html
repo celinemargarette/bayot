@@ -12,98 +12,65 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #f5f5f5;
         }
 
-        .game-container {
+        #game-container {
             text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .images {
+        #images-container {
             display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .images img {
+        #images-container img {
             width: 100px;
             height: 100px;
             object-fit: cover;
-            border-radius: 10px;
+            border: 2px solid #ddd;
         }
 
-        input[type="text"] {
+        input {
             padding: 10px;
+            margin: 10px;
             width: 200px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            font-size: 16px;
         }
 
         button {
             padding: 10px 20px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #28a745;
-            color: white;
+            font-size: 16px;
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #218838;
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
         }
 
-        #result {
+        #next {
             margin-top: 20px;
-            font-size: 18px;
-            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
+    <div id="game-container">
         <h1>4 Pics 1 Word</h1>
-        <div class="images">
-            <img src="https://www.collinsdictionary.com/images/full/apple_158989157.jpg" alt="Image 1">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Image 2">
-            <img src="https://img.freepik.com/free-vector/apple-tree-isolated-white_1308-55458.jpg" alt="Image 3">
-            <img src="https://www.inspiredtaste.net/wp-content/uploads/2019/11/Homemade-Apple-Pie-From-Scratch-1200.jpg" alt="Image 4">
+        <div id="images-container">
+            <img id="img1" src="" alt="image 1">
+            <img id="img2" src="" alt="image 2">
+            <img id="img3" src="" alt="image 3">
+            <img id="img4" src="" alt="image 4">
         </div>
-        <input type="text" id="guess-input" placeholder="Enter your guess">
-        <button id="submit-guess">Submit</button>
-        <p id="result"></p>
+        <input type="text" id="guess" placeholder="Enter word" />
+        <button id="submit">Submit</button>
+        <div id="message"></div>
+        <button id="next" style="display: none;">Next Level</button>
     </div>
-    <script>
-        // Define the correct word for the game
-        const correctWord = "apple";
 
-        // Get references to the DOM elements
-        const guessInput = document.getElementById('guess-input');
-        const submitButton = document.getElementById('submit-guess');
-        const resultText = document.getElementById('result');
-
-        // Add event listener to the submit button
-        submitButton.addEventListener('click', checkGuess);
-
-        function checkGuess() {
-            const userGuess = guessInput.value.trim().toLowerCase();
-
-            if (userGuess === correctWord) {
-                resultText.textContent = "Correct! Well done!";
-                resultText.style.color = "green";
-            } else {
-                resultText.textContent = "Incorrect! Try again.";
-                resultText.style.color = "red";
-            }
-
-            // Clear the input field
-            guessInput.value = '';
-        }
-    </script>
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
